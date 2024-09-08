@@ -1,0 +1,88 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/User/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7262
+        }
+      ],
+      "UpstreamPathTemplate": "/User/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete"],
+      "SwaggerKey": "UserAPI"
+    },
+    {
+      "DownstreamPathTemplate": "/Login/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7262
+        }
+      ],
+      "UpstreamPathTemplate": "/Login/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "SwaggerKey": "UserAPI"
+    },
+    {
+      "DownstreamPathTemplate": "/Restricted/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7262
+        }
+      ],
+      "UpstreamPathTemplate": "/Restricted/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "SwaggerKey": "UserAPI"
+    },
+
+    {
+      "DownstreamPathTemplate": "/Message/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7261
+        }
+      ],
+      "UpstreamPathTemplate": "/Message/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "SwaggerKey": "MessageAPI"
+    }
+  ],
+
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7142/swagger/"
+  },
+
+  "SwaggerEndPoints": [
+    {
+      "Key": "UserAPI",
+      "TransformByOcelogConfig": false,
+      "Config": [
+        {
+          "Name": "Users API",
+          "Version": "v1",
+          "Url": "https://localhost:7262/swagger/v1/swagger.json"
+        }
+      ]
+    },
+
+    {
+      "Key": "MessageAPI",
+      "TransformByOcelogConfig": false,
+      "Config": [
+        {
+          "Name": "Message API",
+          "Version": "v1",
+          "Url": "https://localhost:7261/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ]
+
+}
